@@ -220,5 +220,4 @@ Este enfoque garantiza un despliegue seguro y eficiente, asegurando que el micro
 
 ## Diagrama UML:
 
-<p align="center"><img src="./docs/uml-diagram-accwe-hospital.png" alt="UML Diagram AccWe Hospital"> </p>
-
+<p align="center"><img src="./docs/uml-diagram-accwe-hospital.png" alt="UML Diagram AccWe Hospital"></p>
