@@ -1,0 +1,25 @@
+# Etapa 1: Construir la aplicación con Maven
+FROM maven:latest AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src src
+RUN mvn clean package
+
+# Etapa 2: Ejecutar las pruebas
+FROM build AS test
+RUN mvn test
+
+# Usa una imagen de Tomcat como base
+FROM tomcat:9.0-jre11-slim
+
+# Copia el archivo WAR generado por Maven al directorio de despliegue de Tomcat
+COPY target/accenture-techhub-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
+
+# Puerto por defecto para Tomcat
+EXPOSE 5501
+
+# Inicia Tomcat al iniciar el contenedor
+CMD ["catalina.sh", "run"]
+
+
+
